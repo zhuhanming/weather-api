@@ -5,7 +5,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT ?? 8000;
 
 app.use(helmet());
 app.use(morgan("dev"));
