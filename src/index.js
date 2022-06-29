@@ -1,6 +1,7 @@
 const express = require("express");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const cors = require("cors");
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
@@ -9,6 +10,7 @@ const port = process.env.PORT ?? 8000;
 
 app.use(helmet());
 app.use(morgan("dev"));
+app.use(cors({ origin: "*" }));
 
 app.get("/", (_req, res) => {
   res.send("Weather API is up and running");
